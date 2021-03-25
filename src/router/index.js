@@ -47,6 +47,19 @@ const routes = [
         component: Layout,
         children: [
             {
+                path: 'nodeInfo',
+                component: () => import("@/views/nodeInfo/index.vue"),
+                name: 'NodeInfo',
+                meta: { title: '节点列表' }
+            }
+        ]
+
+    },
+    {
+        path: '/',
+        component: Layout,
+        children: [
+            {
                 path: 'my',
                 component: () => import("@/views/my/index.vue"),
                 name: 'My',
