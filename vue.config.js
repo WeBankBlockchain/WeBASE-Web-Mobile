@@ -35,8 +35,6 @@ module.exports = {
             .set("components", resolve("./src/components"))
             .set("views", resolve("src/views"));
         const svgRule = config.module.rule("svg");
-        // 清除已有的所有 loader。
-        // 如果你不这样做，接下来的 loader 会附加在该规则现有的 loader 之后。
         svgRule.uses.clear();
         svgRule
             .test(/\.svg$/)
@@ -61,8 +59,7 @@ module.exports = {
             postcss: {
                 plugins: [
                     require('postcss-pxtorem')({
-                        rootValue: 37.5, // 换算的基数(设计图375的根字体为37.5)
-                        // selectorBlackList: ['weui', 'mu'], // 忽略转换正则匹配项
+                        rootValue: 37.5,
                         propList: ['*']
                     })
                 ]
