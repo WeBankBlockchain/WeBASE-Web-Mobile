@@ -1,21 +1,27 @@
 <template>
     <div>
         <van-tabbar v-model="active" @change="onChange" route>
-            <van-tabbar-item replace to="/home" icon="home-o">首页</van-tabbar-item>
-            <van-tabbar-item replace to="/my" icon="friends-o">我</van-tabbar-item>
+            <van-tabbar-item replace to="/home" >首页</van-tabbar-item>
+            <van-tabbar-item replace to="/blockInfo">
+                <span>区块</span>
+            </van-tabbar-item>
+            <van-tabbar-item replace to="/txInfo" >交易</van-tabbar-item>
+            <van-tabbar-item replace to="/nodeInfo" >节点</van-tabbar-item>
+            <van-tabbar-item replace to="/contract" >合约</van-tabbar-item>
         </van-tabbar>
     </div>
 </template>
 <script>
+import { reactive, ref, toRefs, onMounted, provide, computed } from 'vue'
+import blockPng from '@/assets/image/block.png'
 export default {
-    data() {
+    setup() {
+        onMounted(() => {
+            console.log(blockPng)
+        })
         return {
-            active: 0
+            icon1: '../../asstes/image/block.png'
         }
-    },
-    // watch
-    mounted(){
-        console.log(window.location.hash);
     },
     methods: {
         onChange(index) {

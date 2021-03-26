@@ -1,8 +1,8 @@
 <template>
     <div>
         <navbar />
-        <app-main />
-        <!-- <tabbar /> -->
+        <app-main style="padding-bottom: 60px" />
+        <tabbar />
     </div>
 </template>
 <script>
