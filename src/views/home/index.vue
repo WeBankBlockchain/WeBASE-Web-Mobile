@@ -387,6 +387,7 @@ export default {
                     if (!groupIdList.includes(groupId.value) || !sessionStorage.getItem('groupId')) {
                         groupId.value = list[0]['value']
                         state.reqData.groupId = list[0]['value']
+                        state.reqNode.groupId = list[0]['value']
                         sessionStorage.setItem("groupId", list[0].value)
                     }
                     queryAll()
@@ -457,6 +458,7 @@ export default {
             }
         }
         const queryNodeList = async () => {
+            console.log('queryNodeList', state.reqNode);
             const { data } = await getNodeList(state.reqNode, state.reqQuery);
             state.loading = false;
             if (data.code === 0) {
