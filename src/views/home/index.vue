@@ -54,7 +54,7 @@
         <div style="font-size:12px;padding: 0 16px;">
             <van-row gutter="16">
                 <van-col span="12">
-                    <div class="overview-base" style="background: #73baf6;">
+                    <div class="overview-base" style="background: #73baf6;" @click="toLink('nodeInfo')">
                         <div style="font-size:16px;display: flex;justify-content: space-between;align-items: center;">
                             <span style="font-size: 24px;color: #FFFFFF;">{{overviewInfo.nodeCount}}</span>
                             <span>
@@ -67,7 +67,7 @@
                     </div>
                 </van-col>
                 <van-col span="12">
-                    <div class="overview-base" style="background: #6CC8E6;">
+                    <div class="overview-base" style="background: #6CC8E6;" @click="toLink('contract')">
                         <div style="font-size:16px;display: flex;justify-content: space-between;align-items: center;">
                             <span style="font-size: 24px;color: #FFFFFF;">
                                 {{overviewInfo.contractCount}}
@@ -83,7 +83,7 @@
             </van-row>
             <van-row gutter="16" style="margin-top: 16px;">
                 <van-col span="12">
-                    <div class="overview-base" style="background: #ECAC7B;">
+                    <div class="overview-base" style="background: #ECAC7B;" @click="toLink('blockInfo')">
                         <div style="font-size:16px;display: flex;justify-content: space-between;align-items: center;">
                             <span style="font-size: 24px;color: #FFFFFF;">
                                 {{overviewInfo.latestBlock}}
@@ -93,7 +93,7 @@
                     </div>
                 </van-col>
                 <van-col span="12">
-                    <div class="overview-base" style="background: #8AAEFD;">
+                    <div class="overview-base" style="background: #8AAEFD;" @click="toLink('txInfo')">
                         <div style="font-size:16px;display: flex;justify-content: space-between;align-items: center;">
                             <span style="font-size: 24px;color: #FFFFFF;">
                                 {{overviewInfo.transactionCount}}
@@ -173,7 +173,7 @@
             <van-tabs v-model:active="active" sticky color="#5C86DA" background="#f8f8fa" @click="changeTab">
                 <van-tab title="区块">
                     <div class="overview-item-base" style="">
-                        <div class="block-item" style=" padding-bottom: 0;" v-for="item in blockData" :key='item.blockNumber'>
+                        <div class="block-item" style=" padding-bottom: 0;" v-for="item in blockData" :key='item.blockNumber' @click="toBlockDetail(item)">
                             <div class="item">
                                 <div class="key">块高</div>
                                 <router-link :to="{'path': 'block', 'query': {blockNumber: item.blockNumber, blockTimestamp:item.blockTimestamp}}" class="node-ip">
@@ -188,10 +188,10 @@
                                 <div class="key">交易笔数</div>
                                 <div style="overflow: hidden;text-overflow: ellipsis;;">{{item.transCount}}</div>
                             </div>
-                            <div class="item-more" @click="toBlockDetail(item)">
+                            <div class="item-more">
                                 <div style="overflow: hidden;text-overflow: ellipsis;" class="item-time">
                                     <span>{{item.blockTimestamp}}</span>
-                                    <span style="">更多 ></span>
+                                    <!-- <span style="">详情 ></span> -->
                                 </div>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                 </van-tab>
                 <van-tab title="交易">
                     <div class="overview-item-base">
-                        <div class="block-item" style=" padding-bottom: 0;" v-for="item in transactionList" :key='item.transHash'>
+                        <div class="block-item" style=" padding-bottom: 0;" v-for="item in transactionList" :key='item.transHash' @click="toTxDetail(item)">
 
                             <div class="item">
                                 <div class="key">交易哈希</div>
@@ -226,7 +226,7 @@
                             <div class="item-more" @click="toTxDetail(item)">
                                 <div style="overflow: hidden;text-overflow: ellipsis;;" class="item-time">
                                     <span>{{item.blockTimestamp}}</span>
-                                    <span style="">更多 ></span>
+                                    <!-- <span style="">详情 ></span> -->
                                 </div>
                             </div>
                         </div>
@@ -521,6 +521,9 @@ export default {
 
     },
     methods: {
+        toLink(val) {
+            this.$router.push(val)
+        },
         toBlockInfo() {
             this.$router.push("blockInfo")
         },

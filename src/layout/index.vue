@@ -1,7 +1,7 @@
 <template>
     <div>
         <navbar />
-        <app-main style="padding-bottom: 60px" />
+        <app-main/>
         <tabbar />
     </div>
 </template>

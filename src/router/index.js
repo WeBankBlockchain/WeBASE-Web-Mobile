@@ -132,7 +132,7 @@ const routes = [
                 path: 'contract',
                 component: () => import('@/views/contract/index'),
                 name: 'Contract',
-                meta: { title: '合约' }
+                meta: { title: '合约列表' }
             }
         ]
     },

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="module">
         <router-view/>
         
     </div>
@@ -18,3 +18,9 @@ export default {
     }
 }
 </script>
+<style scoped>
+.module{
+    padding-bottom: 60px;
+    box-sizing: border-box;
+}
+</style>

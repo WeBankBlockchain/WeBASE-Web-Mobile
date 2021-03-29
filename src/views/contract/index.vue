@@ -13,11 +13,13 @@
                         <div style="overflow: hidden;text-overflow: ellipsis;">{{item.contractName}}</div>
                     </div>
                     <div class="item">
-                        <div class="key">合约abi</div>
-                        <div class="item-content-text">{{item.contractAbi}}
-                          <span class="ellipsis" v-if='item.contractAbi'>...</span>
-                        </div>
-                         <span class="copy-key" v-if='item.contractAbi' @click="handleCopy(item.contractAbi, $event)">复制</span>
+                        <div class="key">部署者地址</div>
+                        <div style="overflow: hidden;text-overflow: ellipsis;padding-right:5px;">{{item.deployAddress}}</div>
+                        <span class="copy-key" @click="handleCopy(item.deployAddress, $event)">复制</span>
+                    </div>
+                    <div class="item">
+                        <div class="key">部署时间</div>
+                        <div style="overflow: hidden;text-overflow: ellipsis;">{{dateFormat(item.deployTime)}}</div>
                     </div>
                     <!-- <div class="item">
                         <div class="key">运行状态</div>
@@ -40,6 +42,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { getAllContractList } from '@/api/contract.js'
 import clip from '@/utils/clipboard.js'
 import { Toast } from 'vant';
+import {dateFormat} from "@/utils/util"
 
 export default {
     name: 'TxInfo',
@@ -86,6 +89,9 @@ export default {
 
     },
     methods: {
+      dateFormat(val) {
+        return dateFormat(val)
+      },
         toBlockDetail(item) {
             this.$router.push({
                 'path': 'block',

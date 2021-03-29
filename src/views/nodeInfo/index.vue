@@ -148,15 +148,15 @@ export default {
     margin-bottom: 16px;
     box-shadow: 0 0 10px 0 rgba(201, 223, 255, 0.5);
     border-radius: 6px;
-    padding-bottom: 0;
+    padding-bottom: 12px;
 }
 .item {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     font-size: 12px;
     margin: 5px 0;
-    /* line-height: 22px;
-    height: 22px; */
+    line-height: 22px;
+    height: 22px;
 }
 .key {
     min-width: 70px;
@@ -197,5 +197,13 @@ export default {
     font-size: 12px;
     color: #5c86da;
     font-weight: 400;
+}
+.circle-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: #fff;
+    margin-bottom: 2px;
 }
 </style>

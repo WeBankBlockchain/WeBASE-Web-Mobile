@@ -4,7 +4,51 @@
             <van-tab title="交易信息">
                 <template v-for="(item , index) in transInfoKey" :key="index">
                     <div v-if="item.key != 'input'" style="display: flex; font-size: 12px; background:#fff; padding:12px 16px;" class="van-hairline--bottom">
-                        <div v-if="item.key != 'input'" style="min-width: 75px;">
+                        <template v-if="item.key === 'blockHash'">
+                            <div v-if="item.key != 'input'" style="min-width: 75px;">
+                                <span style="color: #888888;">
+                                    {{item.name}}
+                                </span>
+                            </div>
+                            <template v-if="item.key != 'input'">
+                                <div style="width:100%">
+                                    <span style="word-break: break-all;">
+                                        <router-link :to="{'path': 'block', 'query': {blockHash: transInfoData[item.key],'blockTimestamp': blockTimestamp}}" class="node-ip">
+                                            {{transInfoData[item.key]}}
+                                        </router-link>
+                                    </span>
+                                </div>
+                            </template>
+                        </template>
+                        <template v-else-if="item.key === 'blockNumber'">
+                            <div v-if="item.key != 'input'" style="min-width: 75px;">
+                                <span style="color: #888888;">
+                                    {{item.name}}
+                                </span>
+                            </div>
+                            <template v-if="item.key != 'input'">
+                                <div style="width:100%">
+                                    <span style="word-break: break-all;">
+                                        <router-link :to="{'path': 'block', 'query': {blockNumber: transInfoData[item.key], blockTimestamp: blockTimestamp}}" class="node-ip">
+                                            {{transInfoData[item.key]}}
+                                        </router-link>
+                                    </span>
+                                </div>
+                            </template>
+                        </template>
+                        <template v-else>
+                            <div v-if="item.key != 'input'" style="min-width: 75px;">
+                                <span style="color: #888888;">
+                                    {{item.name}}
+                                </span>
+                            </div>
+                            <template v-if="item.key != 'input'">
+                                <div style="width:100%">
+                                    <span style="word-break: break-all;">{{transInfoData[item.key]}}</span>
+                                </div>
+                            </template>
+                        </template>
+                        <!-- <div v-if="item.key != 'input'" style="min-width: 75px;">
                             <span style="color: #888888;">
                                 {{item.name}}
                             </span>
@@ -13,7 +57,7 @@
                             <div style="width:100%">
                                 <span style="word-break: break-all;">{{transInfoData[item.key]}}</span>
                             </div>
-                        </template>
+                        </template> -->
                     </div>
                 </template>
                 <template v-for="(item , index) in transInfoKey" :key="index" style=" ">
@@ -82,7 +126,20 @@
                                     <span style="word-break: break-all;">{{txInfoReceiptMap[item.key]}}</span>
                                 </div>
                             </template>
-
+                            <template v-else-if="item.key == 'blockHash'">
+                                <div style="width:100%">
+                                    <router-link :to="{'path': 'block', 'query': {blockHash: txInfoReceiptMap[item.key],'blockTimestamp': blockTimestamp}}" class="node-ip">
+                                        {{txInfoReceiptMap[item.key]}}
+                                    </router-link>
+                                </div>
+                            </template>
+                            <template v-else-if="item.key == 'blockNumber'">
+                                <div style="width:100%">
+                                    <router-link :to="{'path': 'block', 'query': {blockNumber: txInfoReceiptMap[item.key],'blockTimestamp': blockTimestamp}}" class="node-ip">
+                                        {{txInfoReceiptMap[item.key]}}
+                                    </router-link>
+                                </div>
+                            </template>
                             <template v-else-if="item.key == 'status'">
                                 <div style="width:100%">
                                     <span style="word-break: break-all;" :style="{'color': txStatusColor(txInfoReceiptMap[item.key])}">{{txInfoReceiptMap[item.key]}}</span>
