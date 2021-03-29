@@ -15,10 +15,14 @@
                 </span>
             </div>
             <div class="history-search" style="margin-top:5px;">
-                <div class="history-search-item" v-for="(item, index) in dataHistory" @click="selectTag(item)" :key="index">{{ item }}</div>
+                <div class="history-search-value" v-for="(item, index) in dataHistory" @click="selectTag(item)" :key="index">
+                    <span class="history-search-item" >
+                        {{ item }}
+                    </span>
+                </div>
             </div>
-            <div class="history-search" style="margin-top:5px;" v-if="searchHistory.length > 5" @click='openHistory'>
-                <span style="color:#337bf6;" >{{title}}</span>
+            <div class="history-search">
+                <span style="color:#337bf6;" @click='openHistory'>{{title}}</span>
             </div>
         </div>
 
@@ -213,6 +217,7 @@ export default {
     border-radius: 2px;
     padding: 5px 10px;
     margin-bottom: 5px;
+    display: inline-block;
 }
 .overview-item-base {
     margin: 16px;
@@ -254,5 +259,9 @@ export default {
 }
 .search-wrapper >>> .van-search {
     padding: 16px;
+}
+.history-search-value {
+    /* float: left; */
+    width: 100%;
 }
 </style>

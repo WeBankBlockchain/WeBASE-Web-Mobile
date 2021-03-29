@@ -93,7 +93,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr v-for="content in inputData">
-                                                    <td style="border:1px solid #EBEEF5;padding: 2px 6px;" v-for="head in inputHead">
+                                                    <td style="border:1px solid #EBEEF5;padding: 2px 6px;word-break: break-all;" v-for="head in inputHead">
                                                         {{content[head.enName]}}
                                                     </td>
                                                 </tr>
@@ -197,7 +197,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr v-for="content in item.eventLgData">
-                                                        <td style="border:1px solid #EBEEF5;padding: 2px 6px;" v-for="head in logsHead">
+                                                        <td style="border:1px solid #EBEEF5;padding: 2px 6px;word-break: break-all;" v-for="head in logsHead">
                                                             <span v-if="content[head.enName]">
                                                                 {{content[head.enName]}}
                                                             </span>
