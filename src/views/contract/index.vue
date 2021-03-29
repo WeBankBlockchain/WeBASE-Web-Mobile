@@ -2,21 +2,24 @@
     <div>
         <van-list v-model:loading="loading" :finished="finished" finished-text="没有更多了" @load="onLoad" :offset="20" :immediate-check="false">
             <div class="overview-item-base">
-                <div class="block-item" v-for="item in nodeData" :key='item.nodeId'>
+                <div class="block-item" v-for="item in contractData" :key='item.contractAddress'>
                     <div class="item">
-                        <div class="key">节点ID</div>
-                        <div style="overflow: hidden;text-overflow: ellipsis;padding-right:5px;">{{item.nodeId}}</div>
-                        <span class="copy-key" @click="handleCopy(item.nodeId, $event)">复制</span>
+                        <div class="key">合约地址</div>
+                        <div style="overflow: hidden;text-overflow: ellipsis;padding-right:5px;">{{item.contractAddress}}</div>
+                        <span class="copy-key" @click="handleCopy(item.contractAddress, $event)">复制</span>
                     </div>
                     <div class="item">
-                        <div class="key">块高</div>
-                        <div style="overflow: hidden;text-overflow: ellipsis;">{{item.blockNumber}}</div>
+                        <div class="key">合约名称</div>
+                        <div style="overflow: hidden;text-overflow: ellipsis;">{{item.contractName}}</div>
                     </div>
                     <div class="item">
-                        <div class="key">pbftView</div>
-                        <div style="overflow: hidden;text-overflow: ellipsis;;">{{item.pbftView}}</div>
+                        <div class="key">合约abi</div>
+                        <div class="item-content-text">{{item.contractAbi}}
+                          <span class="ellipsis" v-if='item.contractAbi'>...</span>
+                        </div>
+                         <span class="copy-key" v-if='item.contractAbi' @click="handleCopy(item.contractAbi, $event)">复制</span>
                     </div>
-                    <div class="item">
+                    <!-- <div class="item">
                         <div class="key">运行状态</div>
                         <div style="overflow: hidden;text-overflow: ellipsis;;">
                             <span class="circle-dot" :style="{'background': textColor(item.nodeActive)}">
@@ -25,7 +28,7 @@
                                 {{nodesStatus(item.nodeActive)}}
                             </span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </van-list>
@@ -34,7 +37,7 @@
 <script>
 import { reactive, ref, toRefs, onMounted, provide, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { getNodeList, getConsensusNodeId } from '@/api/node.js'
+import { getAllContractList } from '@/api/contract.js'
 import clip from '@/utils/clipboard.js'
 import { Toast } from 'vant';
 
@@ -45,41 +48,36 @@ export default {
         const state = reactive({
             loading: false,
             finished: false,
-            nodeData: [],
+            contractData: [],
             reqData: {
                 groupId: groupId.value,
                 pageNumber: 1,
                 pageSize: 7
             },
-            reqQuery: {}
+            reqQuery: {
+              type: 1
+            }
         })
-        const queryNodeList = async () => {   
+        const queryContractList = async () => {   
             //请求接口
-            const {data} = await getNodeList(state.reqData, state.reqQuery)
-            return data
-            
-        }
-        const queryList = async () => {
-            const data = await queryNodeList()
+            const {data} = await getAllContractList(state.reqData, state.reqQuery)
             state.loading = false;
             if (data.code === 0) {
-                state.nodeData = state.nodeData.concat(data.data)
-                console.log(state.nodeData,data.data)
-                if (state.nodeData.length >= data.totalCount) {
+                state.contractData = state.contractData.concat(data.data)
+                if (state.contractData.length >= data.totalCount) {
                     state.finished = true;
                 }
             } else {
                 Toast.fail(data.message)
             }
         }
-        
         const onLoad = () => {
             state.reqData.pageNumber += 1
-            queryList()
+            queryContractList()
         };
         onMounted(() => {
             //初始化列表接口
-            queryList()
+            queryContractList()
         })
         return {
             ...toRefs(state),
@@ -148,7 +146,7 @@ export default {
     margin-bottom: 16px;
     box-shadow: 0 0 10px 0 rgba(201, 223, 255, 0.5);
     border-radius: 6px;
-    padding-bottom: 0;
+    padding-bottom: 8px;
 }
 .item {
     display: flex;
@@ -197,5 +195,18 @@ export default {
     font-size: 12px;
     color: #5c86da;
     font-weight: 400;
+}
+.item-content-text{
+  overflow: hidden;
+  height: 42px;
+  overflow: hidden;
+  padding-right: 12px;
+  word-break:break-all;
+  position: relative;
+}
+.ellipsis{
+  position: absolute;
+  right: 2px;
+  bottom: 0;
 }
 </style>
