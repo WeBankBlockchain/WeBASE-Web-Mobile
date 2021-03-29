@@ -12,9 +12,17 @@ const routes = [
         component: () => import("@/views/login/index.vue")
     },
     {
-        path: "/home",
-        name: "Home",
-        component: () => import("@/views/home/index.vue")
+        path: '/',
+        component: Layout,
+        children: [
+            {
+                path: 'home',
+                component: () => import("@/views/home/index.vue"),
+                name: 'home',
+                meta: { title: '首页' }
+            }
+        ]
+        
     },
     {
         path: '/',
@@ -113,6 +121,18 @@ const routes = [
                 component: () => import('@/views/set/index'),
                 name: 'Set',
                 meta: { title: '设置' }
+            }
+        ]
+    },
+    {
+        path: '/',
+        component: Layout,
+        children: [
+            {
+                path: 'contract',
+                component: () => import('@/views/contract/index'),
+                name: 'Contract',
+                meta: { title: '合约' }
             }
         ]
     },
