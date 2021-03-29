@@ -198,7 +198,7 @@ export default {
 }
 .item-content-text{
   overflow: hidden;
-  height: 43px;
+  height: 42px;
   overflow: hidden;
   padding-right: 12px;
   word-break:break-all;
