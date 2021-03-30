@@ -156,11 +156,11 @@ export default {
 }
 .item {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     font-size: 12px;
     margin: 5px 0;
-    /* line-height: 22px;
-    height: 22px; */
+    line-height: 22px;
+    height: 22px;
 }
 .key {
     min-width: 70px;
