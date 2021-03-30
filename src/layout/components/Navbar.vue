@@ -1,5 +1,5 @@
 <template>
-    <van-nav-bar :title="title" left-text="" left-arrow @click-left="onClickLeft">
+    <van-nav-bar :title="title" left-text="" left-arrow @click-left="onClickLeft" class="nav-header">
         <template #right>
             <!-- <van-icon name="setting" @click="onClickRight"/> -->
             <!-- <van-dropdown-menu active-color="#1989fa" class="home-group">
@@ -48,3 +48,11 @@ export default {
     }
 }
 </script>
+<style scoped>
+.nav-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+</style>

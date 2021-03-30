@@ -9,7 +9,11 @@
                     <div style="background:#F8F8F8;border-radius: 4px;padding:12px;" v-for="it in blockInfoData[item.enName]">
                         <div class="item">
                             <div class="key">交易哈希</div>
-                            <div style="word-break: break-all;">{{it.hash}}</div>
+                            <div style="word-break: break-all;">
+                                <router-link :to="{'path': 'transaction', 'query': {transHash: it.hash, blockTimestamp: blockTimestamp}}" class="node-ip">
+                                    {{it.hash}}
+                                </router-link>
+                            </div>
                         </div>
                         <div class="item">
                             <div class="key">发送方</div>

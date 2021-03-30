@@ -15,16 +15,19 @@
                 </span>
             </div>
             <div class="history-search" style="margin-top:5px;">
-                <div class="history-search-value" v-for="(item, index) in searchHistory" @click="selectTag(item)" :key="index">
+                <div class="history-search-value" v-for="(item, index) in dataHistory" @click="selectTag(item)" :key="index">
                     <span class="history-search-item" >
                         {{ item }}
                     </span>
                 </div>
             </div>
+            <div class="history-search">
+                <span style="color:#337bf6;" @click='openHistory'>{{title}}</span>
+            </div>
         </div>
 
         <div v-if="searchType=='BLOCK'">
-            <div class="overview-item-base">
+            <div class="overview-item-base" @click="toBlockDetail(blockInfo)">
                 <div class="block-item">
                     <div class="item">
                         <div class="key">块高</div>
@@ -32,16 +35,16 @@
                     </div>
                     <div class="item">
                         <div class="key">出块者</div>
-                        <div style="word-break: break-all;">{{seekSealer(blockInfo.sealerList, blockInfo.sealer)}}</div>
+                        <div style="overflow: hidden;text-overflow: ellipsis;;">{{seekSealer(blockInfo.sealerList, blockInfo.sealer)}}</div>
                     </div>
                     <div class="item">
                         <div class="key">区块哈希</div>
-                        <div style="word-break: break-all;">{{blockInfo.hash}}</div>
+                        <div style="word-break: break-all;">{{blockInfo.transactions.length}}</div>
                     </div>
-                    <div class="item-more" @click="toBlockDetail(blockInfo)">
+                    <div class="item-more">
                         <div style="overflow: hidden;text-overflow: ellipsis;" class="item-time">
                             <span>{{timeAge(blockInfo.timestamp) }}</span>
-                            <span style="">更多 ></span>
+                            <!-- <span style="">更多 ></span> -->
                         </div>
                     </div>
                 </div>
@@ -49,7 +52,7 @@
         </div>
         <div v-if="searchType=='TX'">
             <div class="overview-item-base">
-                <div class="block-item">
+                <div class="block-item" >
                     <div class="item">
                         <div class="key">交易哈希</div>
                         <div style="word-break: break-all;">{{txInfo.hash}}</div>
@@ -69,7 +72,7 @@
                     <div class="item-more" @click="toTxDetail(txInfo)">
                         <div style="overflow: hidden;text-overflow: ellipsis;;" class="item-time">
                             <span></span>
-                            <span style="">更多 ></span>
+                            <!-- <span style="">更多 ></span> -->
                         </div>
                     </div>
                 </div>
@@ -82,6 +85,7 @@ import { Search, Icon, Dialog } from 'vant';
 import { mapState, mapMutations } from "vuex";
 import { fetchSearchKw } from '@/api/search.js'
 import { getStore, dedupe, dateFormat } from "../../utils/util";
+import { Toast } from 'vant'
 export default {
     name: "Search",
 
@@ -92,6 +96,8 @@ export default {
             blockInfo: {},
             txInfo: {},
             searchType: '',
+            showData: false,
+            title: '更多>>>'
         }
     },
     created() {
@@ -107,9 +113,27 @@ export default {
     computed: {
         ...mapState({
             searchHistory: state => state.search.searchHistory
-        })
+        }),
+        dataHistory() {
+            if (this.searchHistory.length > 5 && !this.showData) {
+                const array = this.searchHistory.filter((value,index) => {
+                    return index < 5
+                })
+                return array
+            } else {
+                return this.searchHistory
+            }
+        }
     },
     methods: {
+        openHistory() {
+            this.showData = !this.showData
+            if (this.showData) {
+                this.title = '收起'
+            } else {
+                this.title = '更多>>>'
+            }
+        },
         onSearch() {
             let keyword = this.searchText.replace(/^\s+|\s+$/g, "");
             if (!keyword) {
@@ -139,7 +163,7 @@ export default {
                     } else {
                         this.txInfo = {}
                         this.blockInfo = {}
-                        Toast.fail(data.message)
+                        Toast.fail(res.data.message)
                     }
                 })
 
@@ -210,11 +234,11 @@ export default {
 }
 .item {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     font-size: 12px;
     margin: 5px 0;
-    /* line-height: 22px;
-    height: 22px; */
+    line-height: 22px;
+    height: 22px;
 }
 .key {
     min-width: 70px;
