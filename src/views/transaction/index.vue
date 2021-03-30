@@ -126,13 +126,13 @@
                                     <span style="word-break: break-all;">{{txInfoReceiptMap[item.key]}}</span>
                                 </div>
                             </template>
-                            <template v-else-if="item.key == 'blockHash'">
+                            <!-- <template v-else-if="item.key == 'blockHash'">
                                 <div style="width:100%">
                                     <router-link :to="{'path': 'block', 'query': {blockHash: txInfoReceiptMap[item.key],'blockTimestamp': blockTimestamp}}" class="node-ip">
                                         {{txInfoReceiptMap[item.key]}}
                                     </router-link>
                                 </div>
-                            </template>
+                            </template> -->
                             <template v-else-if="item.key == 'blockNumber'">
                                 <div style="width:100%">
                                     <router-link :to="{'path': 'block', 'query': {blockNumber: txInfoReceiptMap[item.key],'blockTimestamp': blockTimestamp}}" class="node-ip">
