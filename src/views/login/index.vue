@@ -68,13 +68,14 @@ export default {
             };
             const checkCode = userForm.vercode;
             const { data } = await login(reqData, checkCode, authToken.value)
+            loading.value = false
             if (data.code === 0) {
                 sessionStorage.setItem("user", data.data.account);
                 sessionStorage.setItem("root", data.data.roleName);
                 localStorage.setItem("token", data.data.token);
                 sessionStorage.setItem("accountStatus", data.data.accountStatus);
                 router.push({ path: `/home` })
-                loading.value = false
+                
             } else {
                 Toast.fail(data.message)
                 pictureCheckCode()
