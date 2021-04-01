@@ -14,7 +14,7 @@
                 </template>
             </van-field>
             <div style="margin: 16px;">
-                <van-button block  type="primary" native-type="submit">提交</van-button>
+                <van-button block  type="primary" :loading="loading" native-type="submit">提交</van-button>
             </div>
         </van-form>
     </div>
@@ -33,6 +33,8 @@ export default {
         const router = useRouter()
         const verifyRef = ref(null)
         const authToken = ref(null)
+        const loading = ref(false)
+        console.log('loading',loading);
         const userForm = reactive({
             username: '',
             password: '',
@@ -59,18 +61,21 @@ export default {
             pictureCheckCode()
         }
         const queryLogin = async () => {
+            loading.value = true
             const reqData = {
                 account: userForm.username,
                 accountPwd: sha256(userForm.password),
             };
             const checkCode = userForm.vercode;
             const { data } = await login(reqData, checkCode, authToken.value)
+            loading.value = false
             if (data.code === 0) {
                 sessionStorage.setItem("user", data.data.account);
                 sessionStorage.setItem("root", data.data.roleName);
                 localStorage.setItem("token", data.data.token);
                 sessionStorage.setItem("accountStatus", data.data.accountStatus);
                 router.push({ path: `/home` })
+                
             } else {
                 Toast.fail(data.message)
                 pictureCheckCode()
@@ -84,7 +89,8 @@ export default {
             userForm,
             onSubmit,
             getVerifyCode,
-            verifyRef
+            verifyRef,
+            loading
         };
     },
     components: {

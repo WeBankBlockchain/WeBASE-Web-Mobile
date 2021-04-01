@@ -1,16 +1,41 @@
 const path = require("path");
+const CompressionPlugin = require("compression-webpack-plugin");
 function resolve(dir) {
     return path.join(__dirname, dir);
 }
+// const isProd = process.env.NODE_ENV === 'production'
+// const cdn = {
+//     externals: {
+//         vue: 'Vue',
+//         'vue-router': 'VueRouter',
+//         vuex: 'Vuex',
+//         axios: 'axios',
+//         'ant-design-vue': 'antd',
+//         'vue-ls': 'VueStorage',
+//     },
+//     css: [],
+//     js: [
+//         '//unpkg.com/vue@2.6.12/dist/vue.min.js',
+//         '//unpkg.com/vue-router@3.4.9/dist/vue-router.min.js',
+//         '//unpkg.com/vuex@3.5.1/dist/vuex.min.js',
+//         '//unpkg.com/axios@0.21.0/dist/axios.min.js',
+//         '//unpkg.com/ant-design-vue@1.7.2/dist/antd.min.js',
+//         '//unpkg.com/vue-ls@3.2.1/dist/vue-ls.min.js',
+//     ]
+// };
 module.exports = {
-    publicPath:
-        process.env.NODE_ENV === "production"
-            ? "/"
-            : "/",
+    publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
     outputDir: "dist",
     assetsDir: "static",
     lintOnSave: false,
     devServer: {
+        before(app) {
+            app.get(/.*.(js)$/, (req, res, next) => {
+                req.url = req.url + '.gz';
+                res.set('Content-Encoding', 'gzip');
+                next();
+            })
+        },
         open: false,
         hotOnly: true,
         host: "localhost",
@@ -28,7 +53,13 @@ module.exports = {
     },
     productionSourceMap: false,
     chainWebpack: (config) => {
+        config.plugins.delete("preload");
         config.plugins.delete("prefetch");
+        
+        config.optimization.minimize(true);
+        config.optimization.splitChunks({
+            chunks: 'all'
+        })
         config.resolve.alias
             .set("@", resolve("./src"))
             .set("assets", resolve(".src/assets"))
@@ -58,12 +89,24 @@ module.exports = {
         loaderOptions: {
             postcss: {
                 plugins: [
-                    require('postcss-pxtorem')({
+                    require("postcss-pxtorem")({
                         rootValue: 37.5,
-                        propList: ['*']
-                    })
-                ]
-            }
-        }
+                        propList: ["*"],
+                    }),
+                ],
+            },
+        },
+    },
+    configureWebpack: {
+        plugins: [
+            new CompressionPlugin({
+                algorithm: "gzip",
+                test: /\.js$|\.css$/,
+                filename: "[path].gz[query]",
+                minRatio: 0.8,
+                threshold: 10240,
+
+            }),
+        ],
     },
 };

@@ -31,7 +31,7 @@
                 <div class="block-item">
                     <div class="item">
                         <div class="key">块高</div>
-                        <div style="word-break: break-all;">{{blockInfo.number}}</div>
+                        <div class="value">{{blockInfo.number}}</div>
                     </div>
                     <div class="item">
                         <div class="key">出块者</div>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="item">
                         <div class="key">区块哈希</div>
-                        <div style="word-break: break-all;">{{blockInfo.transactions.length}}</div>
+                        <div class="value">{{blockInfo.transactions.length}}</div>
                     </div>
                     <div class="item-more">
                         <div style="overflow: hidden;text-overflow: ellipsis;" class="item-time">
@@ -51,25 +51,25 @@
             </div>
         </div>
         <div v-if="searchType=='TX'">
-            <div class="overview-item-base">
+            <div class="overview-item-base" @click="toTxDetail(txInfo)">
                 <div class="block-item" >
                     <div class="item">
                         <div class="key">交易哈希</div>
-                        <div style="word-break: break-all;">{{txInfo.hash}}</div>
+                        <div class="value">{{txInfo.hash}}</div>
                     </div>
                     <div class="item">
                         <div class="key">发送方</div>
-                        <div style="word-break: break-all;">{{txInfo.from}}</div>
+                        <div class="value">{{txInfo.from}}</div>
                     </div>
                     <div class="item">
                         <div class="key">接收方</div>
-                        <div style="word-break: break-all;">{{txInfo.to}}</div>
+                        <div class="value">{{txInfo.to}}</div>
                     </div>
                     <div class="item">
                         <div class="key">块高</div>
-                        <div style="word-break: break-all;">{{txInfo.blockNumber}}</div>
+                        <div class="value">{{txInfo.blockNumber}}</div>
                     </div>
-                    <div class="item-more" @click="toTxDetail(txInfo)">
+                    <div class="item-more">
                         <div style="overflow: hidden;text-overflow: ellipsis;;" class="item-time">
                             <span></span>
                             <!-- <span style="">更多 ></span> -->
@@ -245,6 +245,11 @@ export default {
     font-size: 12px;
     color: #888888;
     font-weight: 400;
+}
+.value {
+    /* word-break: break-all; */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .item-more {
     border-top: 1px solid #f2f2f2;
