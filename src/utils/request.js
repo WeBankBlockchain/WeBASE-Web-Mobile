@@ -37,7 +37,7 @@ axiosIns.interceptors.response.use(
                 query: { redirect: router.currentRoute.fullPath }
             })
         }
-        if (response.data && (response.data.code === 202052 || response.data.code === 202053 || response.data.code === 202010)) {
+        if (response.data && (response.data.code === 202052 || response.data.code === 202053)) {
             router.push({
                 path: "/login"
             })
