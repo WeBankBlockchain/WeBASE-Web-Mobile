@@ -58,7 +58,7 @@ export default {
     setup() {
         const route = useRoute()
         const router = useRouter()
-        const groupId = ref(+sessionStorage.getItem('groupId'))
+        const groupId = ref(sessionStorage.getItem('groupId'))
         const state = reactive({
             loading: false,
             finished: false,
