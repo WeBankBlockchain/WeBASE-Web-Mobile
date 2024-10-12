@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_门票_我的</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="1024-1155（门票和卡券）" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="切图" transform="translate(-74.000000, -93.000000)">
+            <g id="编组" transform="translate(74.000000, 93.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="矩形"></g>
+                <path d="M4.92900237,19.071 C3.05073237,17.1976 1.99661803,14.6528 1.99999189,12 C1.99999189,6.477 6.47700237,2 11.9999919,2 C17.5229924,2 21.9999919,6.477 21.9999919,12 C21.9999919,17.523 17.5229924,22 11.9999919,22 L1.99999189,22 L4.92900237,19.071 Z M8.00000237,13 C8.00000237,15.2091 9.79086237,17 12.0000024,17 C14.2090924,17 16.0000024,15.2091 16.0000024,13 L8.00000237,13 Z" id="形状" fill="#0F121E" fill-rule="nonzero" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

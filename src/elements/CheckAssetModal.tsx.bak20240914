@@ -1,0 +1,55 @@
+import React, { useState } from 'react';
+import { BaseModalStyle, ColumnCenterStyle, L2RStyle, LRSideStyle } from '../BaseStyle';
+import AssetQRCode from './AssetQRCode';
+import { AssetInfo } from '../api/AssetInfo';
+
+interface GetAssetsModalProps {
+    //控件可能的参数
+    style?: React.CSSProperties;
+    assetInfo?: AssetInfo;
+    onClose?: () => void
+}
+
+const CheckAssetModal: React.FC<GetAssetsModalProps> = ({ style, assetInfo, onClose }) => {
+
+    const [isShowQRCode, setIsShowQRCode] = useState(false)
+
+    return (
+        <div style={{ ...style, ...BaseModalStyle }}>
+            <div style={{ width: '100%', height: '100%', ...ColumnCenterStyle }}>
+                {isShowQRCode ? <AssetQRCode style={{ width: '80%', height: 'auto' }} code={assetInfo ? (assetInfo.assetAddress + '@' + assetInfo.assetId) : ''} />
+                    :
+                    <img src={assetInfo?.imageUrl} style={{ width: '80%', height: 'auto', borderRadius: '10px' }} />}
+                <div style={{ width: '72%', padding: '4% 4% 4% 4%', height: 'auto', backgroundColor: 'white', borderRadius: '10px' }}>
+                    <div style={{ ...LRSideStyle }}>
+                        <h4 style={{ margin: 0 }}>{assetInfo?.assetName}</h4>
+                        <img src={process.env.PUBLIC_URL + (isShowQRCode ? '/icons/pic.svg' : '/icons/qrcode.svg')} style={{ width: '5%' }} onClick={() => setIsShowQRCode(!isShowQRCode)}></img>
+                    </div>
+                    <div style={{ ...LRSideStyle, marginTop: '4%' }}>
+                        <div style={{ ...L2RStyle, width: '50%' }}>
+                            <img src={process.env.PUBLIC_URL + '/icons/limit.svg'} style={{ width: '8%' }}></img>
+                            <p style={{ fontSize: '85%', margin: '2px 0px 2px 5px', color: '#414C63' }}>Limited Edition</p>
+                        </div>
+                        <div style={{ ...L2RStyle, width: '50%' }}>
+                            <img src={process.env.PUBLIC_URL + '/icons/unique.svg'} style={{ width: '8%' }}></img>
+                            <p style={{ fontSize: '85%', margin: '2px 0px 2px 5px', color: '#414C63' }}>Unique Serial Number</p>
+                        </div>
+                    </div>
+                    <div style={{ ...LRSideStyle, marginTop: '2%' }}>
+                        <div style={{ ...L2RStyle, width: '50%' }}>
+                            <img src={process.env.PUBLIC_URL + '/icons/nocopy.svg'} style={{ width: '8%' }}></img>
+                            <p style={{ fontSize: '85%', margin: '2px 0px 2px 5px', color: '#414C63' }}>Non-reproducible</p>
+                        </div>
+                        <div style={{ ...L2RStyle, width: '50%' }}>
+                            <img src={process.env.PUBLIC_URL + '/icons/forever.svg'} style={{ width: '8%' }}></img>
+                            <p style={{ fontSize: '85%', margin: '2px 0px 2px 5px', color: '#414C63' }}>Permanent Certificat</p>
+                        </div>
+                    </div>
+                </div>
+                <img src={process.env.PUBLIC_URL + '/icons/close.svg'} style={{ width: '10%', marginTop: '10%' }} onClick={onClose} />
+            </div>
+        </div>
+    );
+};
+
+export default CheckAssetModal;

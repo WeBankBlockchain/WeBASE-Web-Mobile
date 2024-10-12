@@ -1,0 +1,11 @@
+.animated {
+    transition: transform 0.5s ease;
+}
+
+.zoom-in {
+    transform: scale(1.2);
+}
+
+.translate.flip {
+    transform: translateX(100px) rotateY(180deg);
+}

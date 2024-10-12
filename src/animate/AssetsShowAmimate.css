@@ -1,0 +1,87 @@
+.zoom-image {
+    animation: zoomEffect 1s;
+    /* 3秒时间 */
+}
+
+@keyframes zoomEffect {
+    0% {
+        transform: scale(0);
+        /* 初始缩放为0 */
+    }
+
+    50% {
+        transform: scale(1.2);
+        /* 中间阶段，缩放到120% */
+    }
+
+    100% {
+        transform: scale(1);
+        /* 最后阶段，再缩放回0 */
+    }
+}
+
+.move-animation {
+    animation: move-lr 0.3s
+        /* 动画时长4秒*/
+}
+
+@keyframes move-lr {
+    0% {
+        transform: translate(-5vw, -2vh);
+        /* 初始位置在左上角 */
+        opacity: 0;
+        /* 透明度为0 */
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(40vw, 20vh);
+        opacity: 0;
+    }
+}
+
+/* 播两次，中间间隔1秒 */
+
+.move-animation-2 {
+    animation: move-lr-2 2.5s
+        /* 动画时长，秒*/
+}
+
+@keyframes move-lr-2 {
+    0% {
+        transform: translate(-50%, -50%);
+        /* 初始位置在左上角 */
+        opacity: 0;
+        /* 透明度为0 */
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    20% {
+        transform: translate(150%, 150%);
+        opacity: 0;
+    }
+
+    /* 第二次 */
+    80% {
+        transform: translate(-50%, -50%);
+        /* 初始位置在左上角 */
+        opacity: 0;
+        /* 透明度为0 */
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(150%, 150%);
+        opacity: 0;
+    }
+
+}

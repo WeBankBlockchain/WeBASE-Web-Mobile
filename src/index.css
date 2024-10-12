@@ -1,0 +1,34 @@
+/* 使根div占据屏幕 */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.adm-list {
+  /*取消list item边界 */
+  --border-inner: none !important;
+  /*取消list(整体)顶底部边界 */
+  --border-bottom: none !important;
+  --border-top: none !important;
+  --padding-left: 0px !important;
+  --padding-right: 0px !important;
+}
+
+.adm-list-item-content-arrow {
+  /* 取消list item右边详情箭头 */
+  display: none !important;
+}
+
+.adm-list-item {
+  /* 取消列表左边空白 */
+  padding-left: 0px;
+}
+
+/* 隐藏滚动条 */
+.list-container::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_二维码</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="ecc门票hk-721" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标" transform="translate(-37.000000, -266.000000)">
+            <g id="编组" transform="translate(37.000000, 266.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="矩形"></g>
+                <path d="M16,17 L16,16 L13,16 L13,13 L16,13 L16,15 L18,15 L18,17 L17,17 L17,19 L15,19 L15,21 L13,21 L13,18 L15,18 L15,17 L16,17 Z M21,21 L17,21 L17,19 L19,19 L19,17 L21,17 L21,21 Z M3,3 L11,3 L11,11 L3,11 L3,3 Z M13,3 L21,3 L21,11 L13,11 L13,3 Z M3,13 L11,13 L11,21 L3,21 L3,13 Z M18,13 L21,13 L21,15 L18,15 L18,13 Z M6,6 L6,8 L8,8 L8,6 L6,6 Z M6,16 L6,18 L8,18 L8,16 L6,16 Z M16,6 L16,8 L18,8 L18,6 L16,6 Z" id="形状" fill="#0F121E" fill-rule="nonzero" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

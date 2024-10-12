@@ -1,0 +1,34 @@
+import axios, { AxiosResponse } from 'axios';
+import { printLog } from '../context/LogTools';
+import { getUrl } from '../tools/UrlTools';
+import { BaseResp } from './BaseResp';
+import { AssetInfo } from './AssetInfo';
+
+export interface ListBaseResp<T> extends BaseResp<T> {
+    totalCount: number,
+    currentPageIndex: number,
+}
+
+export function AssetList(OnAssetList: (resp: ListBaseResp<AssetInfo[]> | undefined) => void, pageNumber: number, pageSize: number, token?: string) {
+
+    let url = getUrl('asset/assetList?&status=1');
+    url = url + '&pageNumber=' + pageNumber;
+    url = url + '&pageSize=' + pageSize;
+
+    let header: any = undefined
+    if (token) {
+        header = { 'Content-Type': 'application/json', 'Authorizationtoken': token }
+    } else {
+        header = { 'Content-Type': 'application/json' }
+    }
+
+    axios.get<ListBaseResp<AssetInfo[]>>(url, { headers: header })
+        .then((response: AxiosResponse<ListBaseResp<AssetInfo[]>>) => {
+            printLog(url + "-->success");
+            response.data.currentPageIndex = pageNumber;
+            OnAssetList(response.data);
+        }).catch((error) => {
+            printLog(["Error when-->" + url, error])
+            OnAssetList(undefined);
+        });
+}
