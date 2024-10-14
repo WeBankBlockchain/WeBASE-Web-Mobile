@@ -17,10 +17,10 @@ import GetAssetsModal from './animate/GetAssetsModal';
 import JumpTestApp from './pages/test/JumpTestApp';
 import { isHKEnv } from './context/Const';
 
-
+new Vconsole()
 if (!isHKEnv) {
   WeConsole()
-  new Vconsole()
+  
 }
 
 //加载关键资源到缓存

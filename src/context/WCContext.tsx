@@ -4,7 +4,7 @@ import { connect } from './ClientUtils'
 import { disConn, getLastSession, getSessionData, SessionData } from './SessionUtils'
 import { useClientContext } from './ClientContext'
 import { CONN_STSTUS, WCTimeout } from './Const'
-import { withTimeout } from './Timeout'
+import { checkIsTimeout, withTimeout } from './Timeout'
 import { useTranslation } from "react-i18next";
 import { ShowToast } from '../tools/CommonUtils'
 
@@ -109,7 +109,7 @@ export function WCContextProvider({ children }: { children: ReactNode | ReactNod
                 const schemeUrl = currentJwt.schemeUrl + 'wcUrl=' + uri
                 printLog(['调用scheme::schemeUrl', schemeUrl])
                 window.location.href = schemeUrl
-            }), WCTimeout)//todo 需要改回来
+            }), WCTimeout * 2)//todo 需要改回来
             if (connectResult) {
                 const _sessionData = getSessionData(connectResult.session)
                 setCurrentStatus(CONN_STSTUS.conning)
@@ -122,8 +122,12 @@ export function WCContextProvider({ children }: { children: ReactNode | ReactNod
                 return
             }
         } catch (error) {
-            printLog(['调用scheme超时！！！'])
-            ShowToast(t("wc_timeout"))
+            printLog(['调用scheme超时！！！', error])
+            if (checkIsTimeout(error)) {
+                ShowToast(t("wc_timeout"))
+            } else {
+                ShowToast(t("network_error"))
+            }
             setCurrentStatus(CONN_STSTUS.noConn)
             return;
         }

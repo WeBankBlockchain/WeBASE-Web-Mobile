@@ -72,7 +72,7 @@ export function MPContextProvider({ children }: { children: ReactNode | ReactNod
 
         try {
             printLog('Start doSignDid::topic-->' + currentSession.session.topic);
-            const didInfo: DIDInfo | undefined = await withTimeout(personalSign(currentClient!, currentSession.session!, currentSession.accounts[0]?.split(':')[2], t("did_note"), currentJwt?.cptId, t), WCTimeout)
+            const didInfo: DIDInfo | undefined = await withTimeout(personalSign(currentClient!, currentSession.session!, currentSession.accounts[0]?.split(':')[2], t("did_note"), currentJwt?.cptId, t), WCTimeout * 2)
             printLog(["try did", didInfo])
             if (didInfo) {
                 setCurrentDID(didInfo)
