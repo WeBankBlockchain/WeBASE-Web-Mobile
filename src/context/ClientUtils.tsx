@@ -20,6 +20,7 @@ export async function createClient(jwtInfo: JWTInfo) {
                 url: getAppMetadata().url,
             },
             backendJWT: jwtInfo.jwt,
+            telemetryEnabled: false
         });
         return _client;
     } catch (err) {

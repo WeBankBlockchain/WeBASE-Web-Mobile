@@ -112,7 +112,7 @@ function DetialPage() {
             {/* 最顶部的连接 */}
             <Connect style={UpDownStyle} />
             {/* 最底部的按钮 */}
-            {(currentAssetInfo && currentAssetInfo.assetOwner === currentAccount && currentStatus === CONN_STSTUS.connected) &&
+            {true &&
                 <div style={{ position: "fixed", bottom: '0%', width: '100%', height: 'auto', ...CenterStyle, zIndex: 10 }}>
                     <img style={{ width: '50%', height: 'auto' }} src={process.env.PUBLIC_URL + '/icons/ticket.png'} onClick={() => { setIsShowCheckPic(true); MyAssetList(OnMyAssetList, GetToken().token); }} />
                 </div>}

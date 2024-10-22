@@ -6,7 +6,7 @@
     "wc_connected": "Connected",
     "wc_connecting": "Connecting",
     "wc_disconnect": "Disconnect",
-    "did_note": "By clicking 'Approve', you authorize us to obtain your name for display purposes during the auction process.",
+    "did_note": "By clicking 'Approve', you consent to us collecting and displaying your name on the ticket visible to other users.",
     "copyed": "Copied",
     "copy_error": "Copy failed",
     "wc_timeout": "Wallet connection timed out, please try again.",

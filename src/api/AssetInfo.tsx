@@ -13,6 +13,11 @@ export interface AssetInfo {
 }
 
 export function getStdAssetInfo(assetInfo: AssetInfo): AssetInfo {
+
+    if (assetInfo.assetName.includes("#")) {
+        return assetInfo
+    }
+
     if (assetInfo.assetId < 10) {
         assetInfo.assetName = assetInfo.assetName + ' #00' + assetInfo.assetId
     } else if (assetInfo.assetId < 100) {
