@@ -19,8 +19,10 @@ export function getStdAssetInfo(assetInfo: AssetInfo): AssetInfo {
     }
 
     if (assetInfo.assetId < 10) {
-        assetInfo.assetName = assetInfo.assetName + ' #00' + assetInfo.assetId
+        assetInfo.assetName = assetInfo.assetName + ' #000' + assetInfo.assetId
     } else if (assetInfo.assetId < 100) {
+        assetInfo.assetName = assetInfo.assetName + ' #00' + assetInfo.assetId
+    } else if (assetInfo.assetId < 1000) {
         assetInfo.assetName = assetInfo.assetName + ' #0' + assetInfo.assetId
     } else {
         assetInfo.assetName = assetInfo.assetName + ' #' + assetInfo.assetId

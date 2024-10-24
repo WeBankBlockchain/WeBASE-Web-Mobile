@@ -2,7 +2,7 @@
   "name": "ticket",
   "version": "0.1.0",
   "private": true,
- 
+
   "proxy": "http://127.0.0.1:9373/",
   "dependencies": {
     "@bxq2011hust/walletconnect-core": "2.17.1-3",

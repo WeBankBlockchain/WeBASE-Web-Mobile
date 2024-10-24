@@ -35,7 +35,7 @@ const CacheJsonAnimate = async (url: string): Promise<string> => {
 export const LoadImageWait = async (src: string, timeout = 10000): Promise<(string | undefined)> => {
 
     //如果是开发环境，需要将图片地址转换成跨域地址
-    if (process.env.PUBLIC_URL.endsWith("ticket-dev") || 1 === 1) {
+    if (false) {
         src = src.replace("occ.test.webankcdn.net", "wbbcoafrtest.test.wbchain.com")
     }
 
@@ -59,7 +59,7 @@ export const LoadImageWait = async (src: string, timeout = 10000): Promise<(stri
 export const LoadImage = async (src: string, onGetCatchSuccess?: (url: string) => void): Promise<string | undefined> => {
 
     //如果是开发环境，需要将图片地址转换成跨域地址
-    if (process.env.PUBLIC_URL.endsWith("ticket-dev") || 1 === 1) {
+    if (false) {
         src = src.replace("occ.test.webankcdn.net", "wbbcoafrtest.test.wbchain.com")
     }
 

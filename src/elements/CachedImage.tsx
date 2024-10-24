@@ -6,7 +6,7 @@ const CachedImage = ({ src, style, className, onClick, onAnimationEnd }:
   { src: string, style?: React.CSSProperties, className?: string, onClick?: MouseEventHandler, onAnimationEnd?: AnimationEventHandler }) => {
 
   //如果是开发环境，需要将图片地址转换成跨域地址
-  if (process.env.PUBLIC_URL.endsWith("ticket-dev") || 1 === 1) {
+  if (false) {
     src = src.replace("occ.test.webankcdn.net", "wbbcoafrtest.test.wbchain.com")
   }
 
