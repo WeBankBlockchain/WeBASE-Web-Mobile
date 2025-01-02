@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="780px" height="972px" viewBox="0 0 780 972" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>详情页-背景</title>
+    <defs>
+        <linearGradient x1="68.0800786%" y1="-4.03323208e-15%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#E0EFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="780" height="972"></rect>
+        <filter x="-31.5%" y="-31.5%" width="162.9%" height="162.9%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="60" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-31.5%" y="-31.5%" width="162.9%" height="162.9%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="60" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="ecc门票hk-721" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="详情页-素材" transform="translate(-159.000000, -58.000000)">
+            <g id="详情页-背景" transform="translate(159.000000, 58.000000)">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="矩形" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                <circle id="椭圆形" fill="#A5F3FF" opacity="0.184268043" filter="url(#filter-4)" mask="url(#mask-3)" cx="77" cy="49" r="286"></circle>
+                <circle id="椭圆形备份-2" fill="#FFFFFF" opacity="0.301641555" filter="url(#filter-5)" mask="url(#mask-3)" cx="390" cy="176" r="286"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,53 @@
+.rules-dialog {
+  width: 100%;
+  height: 100%;
+}
+
+.rules-dialog-content {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 16px 43px;
+  background-color: #ffffff;
+}
+.rules-dialog-content .dialog-buoy {
+  text-align: center;
+  width: 36px;
+  height: 5px;
+  background: #eceff4;
+  border-radius: 30px;
+  margin: 0 auto;
+}
+
+.rules-dialog-content .dialog-title {
+  font-size: 16px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #0f121e;
+  line-height: 24px;
+  margin: 16px 0;
+  text-align: center;
+}
+.rules-dialog-content .rules-item {
+}
+.rules-dialog-content .rules-item .rules-type {
+  font-size: 14px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #0f121e;
+  line-height: 22px;
+  margin-bottom: 12px;
+}
+.rules-dialog-content .rules-item .value-item {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #0f121e;
+  line-height: 22px;
+}
+.rules-dialog-content .rules-item .value-item .text-index {
+    margin-right: 8px;
+}
+.rules-dialog-content .rules-item .value-item .text-content {
+}

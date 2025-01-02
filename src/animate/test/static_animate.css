@@ -1,0 +1,23 @@
+.animated {
+    transition: transform 0.5s ease;
+}
+
+.zoom-in {
+    transform: scale(1.2);
+    /* 放大 */
+}
+
+.zoom-out {
+    transform: scale(0.8);
+    /* 缩小 */
+}
+
+.translate {
+    transform: translateX(20px);
+    /* 水平位移 */
+}
+
+.flip {
+    transform: rotateY(180deg);
+    /* 翻转 */
+}

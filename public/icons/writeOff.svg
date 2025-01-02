@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/交易历史/核销</title>
+    <g id="拍卖视觉-V5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="藏品详情-有权益-已兑换" transform="translate(-28, -1046)">
+            <g id="编组-6备份-2" transform="translate(0, 983)">
+                <g id="上架备份-4" transform="translate(16, 52)">
+                    <g id="icon/交易历史/核销" transform="translate(12, 11)">
+                        <circle id="椭圆形备份" fill="#ECEFF4" cx="12" cy="12" r="12"></circle>
+                        <g id="图标/复制备份" transform="translate(4, 3.9999)">
+                            <g id="编组" transform="translate(2, 1.3334)">
+                                <path d="M6,13.3333333 C5.68498419,13.3333333 5.36979745,13.2518835 5.08879583,13.0891554 L0.911204171,10.669496 C0.349200923,10.3440397 0,9.73736724 0,9.08628321 L0,4.24696439 C0,3.59588035 0.349200923,2.9892079 0.911204171,2.66375162 L5.08879583,0.24409221 C5.65079908,-0.0813640699 6.34920092,-0.0813640699 6.91120417,0.24409221 L11.0887958,2.66375162 C11.6507991,2.9892079 12,3.59588035 12,4.24696439 L12,9.08628321 C12,9.73736724 11.6507991,10.3440397 11.0887958,10.669496 L6.91120417,13.0891554 C6.63020255,13.2518835 6.31518674,13.3333333 6,13.3333333 Z" id="路径" stroke="#0F121E" fill-rule="nonzero"></path>
+                                <path d="M3,6.66666667 L5,8.66666667 C5,8.66666667 6.33333333,7.33333333 9,4.66666667" id="路径-8" stroke="#2DA1FF" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

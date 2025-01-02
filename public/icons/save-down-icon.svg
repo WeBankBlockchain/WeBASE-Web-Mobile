@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-保存</title>
+    <g id="icon-保存" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="编组" transform="translate(3.000000, 3.282486)" stroke="#FFFFFF">
+            <line x1="9" y1="0" x2="9" y2="11.8548766" id="路径-2"></line>
+            <polyline id="路径-3" points="3.37848351 6.71751442 9 12.3390309 14.6215165 6.71751442"></polyline>
+            <polyline id="路径" points="18 10.7175144 18 16.7175144 0 16.7175144 0 10.7175144"></polyline>
+        </g>
+    </g>
+</svg>

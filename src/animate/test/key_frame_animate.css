@@ -1,0 +1,30 @@
+@keyframes zoomIn {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+  
+  @keyframes zoomOut {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0.8);
+    }
+  }
+  
+  .animated {
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  .zoomIn {
+    animation-name: zoomIn;
+  }
+  
+  .zoomOut {
+    animation-name: zoomOut;
+  }

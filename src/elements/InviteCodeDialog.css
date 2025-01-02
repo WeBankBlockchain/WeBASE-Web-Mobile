@@ -1,0 +1,111 @@
+.invite-code-dialog {
+
+}
+
+.invite-code-dialog .adm-center-popup-wrap {
+    width: calc(100vw - 32px);
+    max-width: 468px;
+    margin: 0 auto;
+
+    transform: translate(-50%, -90%);
+
+
+    @media (min-width: 500px) {
+        transform: translate(-50%, -85%);
+    
+    }
+}
+
+
+
+.invite-code-dialog .adm-center-popup-wrap .invite-code-modal {
+  width: 100%;
+}
+.invite-code-dialog .adm-center-popup-wrap .invite-code-modal .adm-modal-content {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 16px 16px;
+  background-color: #ffffff;
+}
+
+.invite-code-modal .adm-modal-content .dialog-title {
+  text-align: center;
+  font-size: 16px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #0f121e;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+
+
+.invite-code-modal .adm-modal-content .invite-code-input {
+  box-sizing: border-box;
+  padding: 16px;
+  background-color: #f6f7f9;
+  border-radius: 8px;
+
+  font-size: 14px;
+  color: #8b93a4;
+  line-height: 22px;
+  /* #8B93A4; */
+
+  --color: #2DA1FF;
+  --placeholder-color: #8B93A4;
+}
+.invite-code-modal .adm-modal-content .invite-code-input-status {
+    border: 1px solid #FF3561;
+}
+.invite-code-modal .adm-modal-content .invite-code-input-focus {
+    border: 1px solid #2da1ff;
+}
+
+
+.invite-code-modal .input-status {
+    min-height: 22px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #ff3561;
+    line-height: 22px;
+    margin: 8px 0;
+    text-align: center;
+}
+
+.invite-code-modal .adm-modal-content .btn-units {
+  /* margin-top: 40px; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-units .main-btn,
+.btn-units .sub-btn {
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 12px 13px;
+  font-size: 16px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  line-height: 24px;
+  flex: 1;
+}
+
+.btn-units .main-btn {
+  background: #2da1ff;
+  color: #ffffff;
+  margin-left: 8px;
+}
+.btn-units .main-btn:disabled {
+  background: #b6deff;
+  border-radius: 8px;
+}
+
+.btn-units .sub-btn {
+  background: #eceff4;
+  color: #414c63;
+}
+
+video{
+    border-radius: 8px;
+}

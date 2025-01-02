@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_资产突破</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="ecc门票hk-721" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标" transform="translate(-71.000000, -266.000000)">
+            <g id="编组" transform="translate(71.000000, 266.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="矩形"></g>
+                <path d="M5,11.1 L7,9.1 L12.5,14.6 L16,11.1 L19,14.1 L19,5 L5,5 L5,11.1 Z M4,3 L20,3 C20.5523,3 21,3.447715 21,4 L21,20 C21,20.5523 20.5523,21 20,21 L4,21 C3.447715,21 3,20.5523 3,20 L3,4 C3,3.447715 3.447715,3 4,3 Z M15.5,10 C14.6716,10 14,9.32843 14,8.5 C14,7.67157 14.6716,7 15.5,7 C16.3284,7 17,7.67157 17,8.5 C17,9.32843 16.3284,10 15.5,10 Z" id="形状" fill="#0F121E" fill-rule="nonzero" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <g id="流程" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="资产详情-已持有-规则收起" transform="translate(-209.000000, -1089.000000)" stroke="#FFFFFF" stroke-width="0.833333333">
+            <g id="按钮-small-强调按钮-正常" transform="translate(128.000000, 1077.000000)">
+                <g id="图标/不可复制备份" transform="translate(81.000000, 12.000000)">
+                    <g id="编组-2" transform="translate(2.500000, 6.464466)">
+                        <line x1="9.33859471e-14" y1="3.53553391" x2="15" y2="3.53553391" id="路径-5"></line>
+                        <polyline id="路径" transform="translate(11.666667, 3.535534) rotate(-315.000000) translate(-11.666667, -3.535534) " points="9.16666667 1.03553391 14.1666667 1.03553391 14.1666667 6.03553391"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

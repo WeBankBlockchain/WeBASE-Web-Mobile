@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/交易历史/成交</title>
+    <g id="拍卖视觉-V5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="藏品详情-有权益-已兑换" transform="translate(-28, -1168)">
+            <g id="编组-6备份-2" transform="translate(0, 983)">
+                <g id="上架备份-3" transform="translate(16, 174)">
+                    <g id="icon/交易历史/成交" transform="translate(12, 11)">
+                        <circle id="椭圆形备份" fill="#ECEFF4" cx="12" cy="12" r="12"></circle>
+                        <g id="编组-20" transform="translate(5, 5)">
+                            <rect id="矩形" stroke="#0F121E" x="0.5" y="0.5" width="13" height="13" rx="2"></rect>
+                            <path d="M5,9 L7,11 C7,11 8.33333333,9.66666667 11,7" id="路径-8" stroke="#2DA1FF" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <line x1="3" y1="3" x2="9" y2="3" id="路径-11" stroke="#0F121E" stroke-linecap="round"></line>
+                            <line x1="2.98492811" y1="5.79127403" x2="5.98492037" y2="5.7844619" id="路径-11备份" stroke="#0F121E" stroke-linecap="round"></line>
+                        </g>
+                        <g id="图标/复制备份" transform="translate(4, 3.9999)"></g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

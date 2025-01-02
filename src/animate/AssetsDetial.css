@@ -1,0 +1,19 @@
+.detial-aminate {
+    animation: detial-move 4s infinite;
+    /* 动画时长4秒*/
+}
+
+@keyframes detial-move {
+
+    0% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
