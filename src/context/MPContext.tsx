@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react'
 import { printLog } from './LogTools'
-import { CONN_STSTUS, tokenkey, WCTimeout, } from './Const'
+import { CONN_STSTUS, tokenkey, WCTimeout, lastAddress } from './Const'
 import { useWCContext } from './WCContext'
 import { GenToken, TokenInfo } from '../api/GenToken'
 import { useTranslation } from "react-i18next";
@@ -95,10 +95,13 @@ export function MPContextProvider({ children }: { children: ReactNode | ReactNod
     useEffect(() => {
         if (currentSession && currentDID) {
             const currentAdds = currentSession.accounts[0]?.split(':')[2]
+            // 传入合约地址用来区分开业项目
+            const lastAddressVal = currentJwt ? currentJwt.openTicketAddress : localStorage.getItem(lastAddress)
             GenToken({ 
                 userAddress: currentAdds, 
                 salt: ('' + Date.now()), 
-                englishName: (currentDID.firstName + " " + currentDID.lastName) 
+                englishName: (currentDID.firstName + " " + currentDID.lastName),
+                assetAddress: lastAddressVal || ''
             }, OnPostToken);
         }
     }, [currentDID])

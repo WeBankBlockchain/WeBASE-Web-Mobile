@@ -20,6 +20,7 @@ export interface GenTokenReq {
     groupSalt?: string
     locationSalt?: string
     orgFullNameSalt?: string
+    assetAddress:  string
 }
 
 export function GenToken(req: GenTokenReq, OnGenToken: (resp: BaseResp<TokenInfo> | undefined) => void) {

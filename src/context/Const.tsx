@@ -20,7 +20,7 @@ export const CONN_STSTUS = {
 
 export const tokenkey = "currentOpenToken"
 
-export const lastAddress = "lastAddress"
+export const lastAddress = "openLastAddress"
 
 export const WCTimeout = 10000
 
